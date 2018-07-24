@@ -26,6 +26,7 @@ public class No684RedundantConnection {
         // Intution:
         // Special case in Kruskal's algorithm of each edge having cost of 1.
         // To find the edge making cycle, we should think about sets representing as MST.
+		// That is Union Find
         
         // source: http://www.csie.ntnu.edu.tw/~u91029/SpanningTree.html#2
         
