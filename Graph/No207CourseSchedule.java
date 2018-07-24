@@ -45,12 +45,12 @@ public class No207CourseSchedule {
             inDegree[e[0]]++;
         }
         
-        // Kahn's
+        // naive Kahn's
         int count = 0;
         while(count < numCourses){
             
             int u = 0; // find a vertex with in-degree 0
-            while(u < numCourses && inDegree[u] != 0) u++;
+            while(u < numCourses && inDegree[u] != 0) u++; // Improved in No210CourseScheduleII
             if(u == numCourses) return false;
             
             inDegree[u] = -1; // set vertex visited
