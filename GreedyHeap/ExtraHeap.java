@@ -68,6 +68,7 @@ public class ExtraHeap {
 
 	private void insertInt(List<Integer> A, int e) {
 		// --> time = O(lgn)
+		// This process is the same as decrease-key(A, i, key) to change value at index i.
 		
 		A.add(e);
 		int i = A.size() - 1;
