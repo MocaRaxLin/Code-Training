@@ -49,8 +49,10 @@ public class Show {
 	}
 	
 	public void showMatrix(int[][] ans) {
+		System.out.print("[");
 		for(int i = 0; i < ans.length; i++)
-			showArray(ans[i]);
+			System.out.print(Arrays.toString(ans[i])+",");
+		System.out.print("]\n");
 	}
 	
 	public void showArray(String[] ans) {

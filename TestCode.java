@@ -18,10 +18,11 @@ import java.util.Map.Entry;
 public class TestCode {
 
 	public static void main(String[] args) {
-//		String[] t = new String[] {"wbrrbrtbw","vwesd","z","a","ab","b","bcdawr"};
-//		Arrays.sort(t);
-//		System.out.println(Arrays.toString(t));
-//		
+		String[] t = new String[] {"wbrrbrtbw","vwesd","z","a","ab","b","bcdawr"};
+		Arrays.sort(t);
+		// Arrays.copyOfRange(A, 0, size); // copy A from index 0 to size-1.
+		// System.out.println(Arrays.toString(t));
+		
 		Map<Integer, Integer> map = new HashMap<>();
 		for(Map.Entry<Integer, Integer> pairs : map.entrySet()) {
 			pairs.getKey();
@@ -38,8 +39,6 @@ public class TestCode {
 		LinkedList<Integer> listL = new LinkedList<>();
 		ArrayList<Integer> listA = new ArrayList<>();
 		Iterator<Integer> i = listL.iterator();
-		
-		List<Integer> list = new LinkedList<>();
 		
 		Set<Integer> set = new HashSet<>();
 		set.size();
@@ -58,7 +57,6 @@ public class TestCode {
 			public int compare(int[] i, int[] j) { return i[0] - j[0]; }
 		});
 		//Arrays.sort(intint, (i, j) -> (i[0] == j[0] ? j[1] - i[1]: i[0] - j[0]));
-        
 		//for(int i = 0; i < intint.length; i++) System.out.println(Arrays.toString(intint[i]));
 		
 		int[] array = new int[] {3,5,3,4,6,8,9,12,0,5,9,8,1,7,6,4};
@@ -74,9 +72,16 @@ public class TestCode {
 		sb = new StringBuilder(); // clear 
 		sb.setLength(0); // clear
 		
-		int power = 1;
-		power <<= 3;
-		power >>= 2;
+		sb.insert(0, "abcdefg");
+		sb.length();
+		char[] dst = new char[3]; // get chars in sb
+		sb.getChars(2, 5, dst, 0); // from, to, dst, startAt
+		String dstString = new String(dst); // char[] to string
+		// System.out.println(dstString);
+		
+		int power = 1; // 0000 0001
+		power <<= 3; // 0000 1000 -> power = 2^3 
+		power >>= 2; // power = power / 4
 		
 		Stack<Integer> stack = new Stack<Integer>();
 		Iterator<Integer> iterator = stack.iterator();
@@ -96,6 +101,10 @@ public class TestCode {
 		setMap.get(123).add(78);
 		Iterator<Integer> ite = setMap.get(123).iterator();
 		// while(ite.hasNext()) System.out.println(ite.next());
+		
+		String helloworld = "Hi! hello  world!";
+		String[] sss = helloworld.split("\\s+");
+		
 	}
 
 }
