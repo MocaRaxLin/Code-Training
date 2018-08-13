@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Parser {
 	public String[] parseArrayStr(String line) {
-		line = line.replaceAll("\\s", "");
+		//line = line.replaceAll("\\s", "");
 		String[] s = line.split("[,|\\[|\\]]");
 		if(s.length == 0) return new String[] {};
 		String[] ret = new String[s.length-1];
@@ -16,7 +16,7 @@ public class Parser {
 	}
 	
 	public String[][] parseMatrixStr(String line){
-		line = line.replaceAll("\\s", "");
+		//line = line.replaceAll("\\s", "");
 		String arrays = line.substring(1, line.length() - 1);
 		if(arrays.length() == 0) return new String[0][0];
 		arrays = arrays.replaceAll("\\],", "] ");
