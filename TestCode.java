@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Random;
 import java.util.Set;
@@ -105,6 +106,10 @@ public class TestCode {
 		String helloworld = "Hi! hello  world!";
 		String[] sss = helloworld.split("\\s+");
 		
+		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
+			@Override
+			public int compare(int[] a, int[] b) {return a[0] - b[0]; }
+		});
 	}
 
 }

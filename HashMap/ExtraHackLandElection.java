@@ -25,12 +25,12 @@ public class ExtraHackLandElection {
 			String[] votes = parser.parseArrayStr(s[i]);
 			System.out.println(Arrays.toString(votes));
 			
-			String ans = sol.heighestVote(votes);
+			String ans = sol.highestVote(votes);
 			System.out.println(ans);
 		}
 	}
 
-	private String heighestVote(String[] votes) {
+	private String highestVote(String[] votes) {
 		// --> O(n), where n = votes.length
 		
 		// Intuition:
@@ -46,15 +46,15 @@ public class ExtraHackLandElection {
 		}
 		
 		String ret = "";
-		int heighestFreq = 0;
+		int highestFreq = 0;
 		for(Entry<String, Integer> e: map.entrySet()) {
-			if(heighestFreq < e.getValue()) {
+			if(highestFreq < e.getValue()) {
 				ret = e.getKey();
-				heighestFreq = e.getValue();
-			}else if(heighestFreq == e.getValue() && ret.compareTo(e.getKey()) < 0) {
+				highestFreq = e.getValue();
+			}else if(highestFreq == e.getValue() && ret.compareTo(e.getKey()) < 0) {
 				// s1.compareTo(s2) < 0 means they are in s1-s2 order
 				ret = e.getKey();
-				heighestFreq = e.getValue();
+				highestFreq = e.getValue();
 			}
 		}
 		return ret;

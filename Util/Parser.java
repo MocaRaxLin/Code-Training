@@ -97,4 +97,14 @@ public class Parser {
 		return ret;
 	}
 	
+	public char[][] stringMatrix2CharMatrix(String[][] m){
+		char[][] ret = new char[m.length][];
+		for(int i = 0; i < m.length; i++) {
+			char[] r = new char[m[i].length];
+			for(int j = 0; j < r.length; j++)  r[j] = m[i][j].charAt(0);
+			ret[i] = r;
+		}
+		return ret;
+	}
+	
 }
