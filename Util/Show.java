@@ -61,4 +61,11 @@ public class Show {
 //		for(String i: ans) System.out.print(i + ",");
 //		System.out.print("]\n");
 	}
+	
+	public void showMatrixStr(String[][] ans) {
+		System.out.print("[");
+		for(int i = 0; i < ans.length; i++)
+			System.out.print(Arrays.toString(ans[i])+",");
+		System.out.print("]\n");
+	}
 }

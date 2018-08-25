@@ -55,4 +55,17 @@ public class No275HIndexII {
         }
         return n-i;
     }
+    
+    // it also works
+    public int hIndex0(int[] A) {
+        int n = A.length;
+        int i = 0, j = n, h = 0;
+        while(i < j){ // be careful when A.length < 2
+            int m = i + (j-i) / 2;
+            h = n - m;
+            if(A[m] < h) i = m + 1;
+            else j = m;
+        }
+        return n-i;
+    }
 }

@@ -62,8 +62,8 @@ public class No34FindFirstandLastPositionofElementinSortedArray {
         j = A.length;
         while(i < j){
             int m = i + (j-i)/2;
-            if(t < A[m]) j = m;
-            else i = m + 1;
+            if(A[m] <= t) i = m + 1;
+            else j = m;
         }
         int right = i > 0 && A[i-1] == t? i - 1: -1;
         return new int[]{left, right};

@@ -110,6 +110,9 @@ public class TestCode {
 			@Override
 			public int compare(int[] a, int[] b) {return a[0] - b[0]; }
 		});
+		
+		String commaS = "a,,b,"; // split will ignore the last empty string
+		//System.out.println(Arrays.toString(commaS.split(",")));
 	}
 
 }
