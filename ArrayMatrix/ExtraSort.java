@@ -170,7 +170,7 @@ public class ExtraSort {
 	// if f(n) = O(n^(c-ε)) for some ε > 0,
 	// then T(n) = Θ(n^c)
 	
-	// case 2. (all nodes)
+	// case 2. (all nodes) -> same n^c times one more logn
 	// if f(n) = Θ(n^c * (logn)^k), where k >= 0, 
 	// then T(n) = Θ(n^c * (logn)^(k+1) )
 	

@@ -113,6 +113,18 @@ public class TestCode {
 		
 		String commaS = "a,,b,"; // split will ignore the last empty string
 		//System.out.println(Arrays.toString(commaS.split(",")));
+		
+		
+		String a = "A";
+		String b = "a";
+		System.out.println(a.compareTo(b));
+		// a.compareTo(b) == -1, if a is front and b is rear in dictionary order(lexicographically)
+		
+		char c = '1' - '0';
+		char d = 'a' - '0';
+//		System.out.println((int) c);
+//		System.out.println((int) d);
+		
 	}
 
 }

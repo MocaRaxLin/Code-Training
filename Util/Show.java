@@ -1,7 +1,9 @@
 package Util;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class Show {
 	// List
@@ -66,6 +68,14 @@ public class Show {
 		System.out.print("[");
 		for(int i = 0; i < ans.length; i++)
 			System.out.print(Arrays.toString(ans[i])+",");
+		System.out.print("]\n");
+	}
+	
+	//set
+	public void showSetStr(Set<String> ans) {
+		Iterator<String> it = ans.iterator();
+		System.out.print("[");
+		while(it.hasNext()) System.out.print(it.next() + ", ");
 		System.out.print("]\n");
 	}
 }
