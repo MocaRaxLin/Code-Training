@@ -26,7 +26,13 @@ public class ExtraSumOfPairsNotGreaterThanK {
 				"1\n" + 
 				"[1]\n" + 
 				"[1]\n" + 
-				"0";
+				"0\n" + 
+				"[1,3,6]\n" + 
+				"[2,6]\n" + 
+				"8\n" + 
+				"[1,1,1,2,2,2,2,3,3,3,4,7]\n" + 
+				"[1,1,1,2,2,2,3,3,5,5,6,7,7,7]\n" + 
+				"13";
 		String[] s = t.split("\n");
 		for(int i = 0; i < s.length; i+=3) {
 			int[] A = parser.parseArray(s[i]);

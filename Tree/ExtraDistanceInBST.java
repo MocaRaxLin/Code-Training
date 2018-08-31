@@ -15,7 +15,10 @@ public class ExtraDistanceInBST {
 				"0\n" + 
 				"[3,2,1,5,4,6]\n" + 
 				"6\n" + 
-				"1";
+				"1\n" + 
+				"[3,2,1,5,4,6]\n" + 
+				"6\n" + 
+				"7";
 		String[] s = t.split("\n");
 		for(int i = 0; i < s.length; i+=3) {
 			int[] nodes = parser.parseArray(s[i]);
@@ -27,6 +30,12 @@ public class ExtraDistanceInBST {
 	}
 
 	private int constructBSTFindDis(int[] A, int p, int q) {
+		boolean[] seen = new boolean[2];
+		for(int e: A) {
+			if(e == p) seen[0] = true;
+			else if(e == q) seen[1] = true;
+		}
+		if(!(seen[0]&&seen[1])) return -1;
 		// make p < q
 		if(p > q) { int tmp = p; p = q; q = tmp; }
 		

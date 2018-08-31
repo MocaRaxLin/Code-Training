@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Parser {
+	
+	//string
 	public String[] parseArrayStr(String line) {
 		//line = line.replaceAll("\\s", "");
 		String[] s = line.split("[,|\\[|\\]]");
@@ -32,6 +34,7 @@ public class Parser {
 		}
 	}
 	
+	//int
 	public int[] parseArray(String line) {
 		line = line.replaceAll("\\s", "");
 		String[] s = line.split("[,|\\[|\\]]");
@@ -88,6 +91,7 @@ public class Parser {
 		return ret;
 	}
 	
+	//double
 	public double[] parseArrayDouble(String line) {
 		line = line.replaceAll("\\s", "");
 		String[] s = line.split("[,|\\[|\\]]");
@@ -97,6 +101,7 @@ public class Parser {
 		return ret;
 	}
 	
+	//char
 	public char[][] stringMatrix2CharMatrix(String[][] m){
 		char[][] ret = new char[m.length][];
 		for(int i = 0; i < m.length; i++) {
@@ -104,6 +109,16 @@ public class Parser {
 			for(int j = 0; j < r.length; j++)  r[j] = m[i][j].charAt(0);
 			ret[i] = r;
 		}
+		return ret;
+	}
+	
+	//float
+	public float[] parseArrayFloat(String line) {
+		line = line.replaceAll("\\s", "");
+		String[] s = line.split("[,|\\[|\\]]");
+		if(s.length == 0) return new float[] {};
+		float[] ret = new float[s.length-1];
+		for(int i = 0; i < ret.length; i++) ret[i] = Float.parseFloat(s[i+1]);
 		return ret;
 	}
 	

@@ -7,14 +7,24 @@ public class ExtraStringMatch {
 	public static void main(String[] args) {
 		ExtraStringMatch sol = new ExtraStringMatch();
 		
-		// String s = "shikisfatababaababhahaha";
-		// String p = "ababaabab";
-		// String s = "a";
-		// String p = "a";
-		String s = "here is a simple example";
-		String p = "example";
-		int ans = sol.KMPMatch(s, p);
-		System.out.println(ans);
+		String t = "shikisfatababaababhahaha\n" + 
+				"ababaabab\n" + 
+				"oaoaaboabob\n" + 
+				"aa\n" + 
+				"oiuyo\n" + 
+				"aa\n" + 
+				"oaoaaboabob\n" + 
+				"bob\n" + 
+				"a\n" + 
+				"a\n" + 
+				"here is a simple example\n" + 
+				"example";
+		String[] s = t.split("\n");
+		for(int i = 0 ; i < s.length; i += 2) {
+			int ans = sol.KMPMatch(s[i], s[i+1]);
+			System.out.println(ans);
+		}
+		
 	}
 
 	private int BMMatch(String S, String P) {
@@ -87,26 +97,26 @@ public class ExtraStringMatch {
 		//
 		// Let T = ababaabab, F(0) = 0
 		// T = a babaabab i = 1
-		// ababaabab j = 0, T[i]!=T[j] and j=0, so F(1) = 0
+		//       ababaabab j = 0, T[i]!=T[j] and j=0, so F(1) = 0
 		// T = ab abaabab i = 2
-		// ababaabab j = 0, T[i]==T[j], so F(2) = j+1 = 1
+		//        ababaabab j = 0, T[i]==T[j], so F(2) = j+1 = 1
 		// using: j++; F[i] = j; i++;
 		// T = aba baabab i = 3
-		// a babaabab j = 1, T[i]==T[j], so F(3) = j+1 = 2
+		//       a babaabab j = 1, T[i]==T[j], so F(3) = j+1 = 2
 		// T = abab aabab i = 4
-		// ab abaabab j = 2, T[i]==T[j], so F(4) = j+1 = 3
+		//       ab abaabab j = 2, T[i]==T[j], so F(4) = j+1 = 3
 		// T = ababa abab i = 5
-		// aba baabab j = 3, T[i]!=T[j], so only process j=F(j-1)
+		//       aba baabab j = 3, T[i]!=T[j], so only process j=F(j-1)
 		// T = ababa abab i = 5
-		// a babaabab j = 1, Again T[i]!=T[j], so j=F(j-1)
+		//         a babaabab j = 1, Again T[i]!=T[j], so j=F(j-1)
 		// T = ababa abab i = 5
-		// ababaabab j = 0, T[i]==T[j], so F(5) = j+1 = 1
+		//           ababaabab j = 0, T[i]==T[j], so F(5) = j+1 = 1
 		// T = ababaa bab i = 6
-		// a babaabab j = 1, T[i]==T[j], so F(6) = j+1 = 2
+		//          a babaabab j = 1, T[i]==T[j], so F(6) = j+1 = 2
 		// T = ababaab ab i = 7
-		// ab abaabab j = 2, T[i]==T[j], so F(7) = j+1 = 3
+		//          ab abaabab j = 2, T[i]==T[j], so F(7) = j+1 = 3
 		// T = ababaaba b i = 8
-		// aba baabab j = 3, T[i]==T[j], so F(8) = j+1 = 4
+		//          aba baabab j = 3, T[i]==T[j], so F(8) = j+1 = 4
 		// End >w< ~ T = ababaabab
 		//   p = [ a b a b a a b a b ]
 		// LCP = [ 0 0 1 2 3 1 2 3 4 ]
@@ -117,17 +127,12 @@ public class ExtraStringMatch {
 		// LCP[0] = 0, ps. LCP stores the length of longest common prefix.
 		int i = 1, j = 0;
 		while (i < LCP.length) {
-			if (P.charAt(i) == P.charAt(j)) {
-				LCP[i] = j + 1;
-				j++;
-				i++;
-			} else if (j > 0) {
-				j = LCP[j - 1];
-			} else {
-				LCP[i] = 0;
-				i++;
-			}
+			if (P.charAt(i) == P.charAt(j)) LCP[i++] = ++j;
+			else if (j == 0) LCP[i++] = 0;
+			else j = LCP[j - 1];
 		}
+		System.out.println("Pattern: " + P);
+		System.out.println("LCP of pattern: " + Arrays.toString(LCP));
 
 		// match S with P by taking advantage of Fp (LCP)
 		// Almost the same as LCP, but only use not make Fp Array.
