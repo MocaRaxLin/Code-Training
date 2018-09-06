@@ -14,6 +14,7 @@ import java.util.Set;
 import java.util.Stack;
 import java.util.TreeMap;
 import java.util.TreeSet;
+
 import java.util.Map.Entry;
 
 public class TestCode {
@@ -38,6 +39,11 @@ public class TestCode {
 		while(mapIte.hasNext()) System.out.println("key: "+mapIte.next().getKey());
 		
 		LinkedList<Integer> listL = new LinkedList<>();
+		for(int i = 0; i < 10; i++) listL.add(i);
+		listL.toArray(); // good way to transform list to array.
+		new ArrayList<Integer>(listL); // copy a list
+		// System.out.println(Arrays.toString(listL.toArray()));
+		
 		ArrayList<Integer> listA = new ArrayList<>();
 		Iterator<Integer> i = listL.iterator();
 		
@@ -117,14 +123,21 @@ public class TestCode {
 		
 		String a = "A";
 		String b = "a";
-		System.out.println(a.compareTo(b));
+		// a.toLowerCase();
+		// System.out.println(a.compareTo(b)); -32
 		// a.compareTo(b) == -1, if a is front and b is rear in dictionary order(lexicographically)
 		
 		char c = '1' - '0';
 		char d = 'a' - '0';
+		// Character.isLetter(c);
 //		System.out.println((int) c);
 //		System.out.println((int) d);
 		
+		// char array of size 256 = char map :)
+		// including 128 ASCII + 128 extended ASCII
+		char[] cMap = new char[256];
+		char[] hlwd = "helloworld".toCharArray(); 
+		new String(hlwd); // char[] to String
 	}
 
 }
