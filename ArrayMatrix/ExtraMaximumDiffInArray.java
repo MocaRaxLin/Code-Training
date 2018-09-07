@@ -1,6 +1,5 @@
 package ArrayMatrix;
 
-import java.util.Arrays;
 
 import Util.Parser;
 
@@ -14,7 +13,6 @@ public class ExtraMaximumDiffInArray {
 		String[] s = t.split("\n");
 		for(int i = 0; i < s.length; i++) {
 			int[] A = parser.parseArray(s[i]);
-			//System.out.println(Arrays.toString(A));
 			int ans = sol.maxDiffInArray(A);
 			System.out.println(ans);
 		}
