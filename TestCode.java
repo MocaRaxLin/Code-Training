@@ -138,6 +138,11 @@ public class TestCode {
 		char[] cMap = new char[256];
 		char[] hlwd = "helloworld".toCharArray(); 
 		new String(hlwd); // char[] to String
+		
+		
+		// bit operation
+		int bitA = 5;
+		System.out.println((bitA&1) == 1);
 	}
 
 }
