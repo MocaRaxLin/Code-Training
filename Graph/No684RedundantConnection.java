@@ -39,7 +39,9 @@ public class No684RedundantConnection {
         }
         
         int[] p = new int[N+1]; // parent of node x is p[x];
-        for(int i = 0; i < p.length; i++) p[i] = i; // each node is belong to its own set.
+        // each node is belong to its own set.
+        // here parent of node i == i, it means we hit the root.
+        for(int i = 0; i < p.length; i++) p[i] = i;
         
         for(int[] e: edges){
             int pA = setOf(p, e[0]);
@@ -49,16 +51,11 @@ public class No684RedundantConnection {
                 //System.out.println();
                 return e;
             }else{
-                union(p, e[0], pB, e[1]);
+            	p[pB] = e[0]; // union, make e[0] as pB's parent.
             }
         }
         //System.out.println();
         return new int[]{-1, -1};
-    }
-    
-    public void union(int[] p, int u, int ancestorV, int v){
-        p[ancestorV] = u;
-        if(p[u] == 0) p[u] = u;
     }
     
     public int setOf(int[] p, int x){

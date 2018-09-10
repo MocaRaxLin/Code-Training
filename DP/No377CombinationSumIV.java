@@ -27,13 +27,12 @@ public class No377CombinationSumIV {
     	
     	// Intution
     	// eg. A = [1,2,3], T = 4
+    	// To know dp[4], we got to know dp[1], dp[2], dp[3] first
+    	// Then Sum them up.
     	//     4
     	//     | 1   \ 2   \ 3
     	//     3      2     1
-    	//     | 1   \ 2   \ 3
-    	//     .
-    	//     .
-    	//     .
+    	//
     	//
     	// Let dp[i] denotes the number of combination ways of target i.
     	// dp[i] = Sum(dp[ i-A[j] ]), for j = 0 to n-1 and i - A[j] >= 0.

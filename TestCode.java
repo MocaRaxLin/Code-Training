@@ -34,6 +34,7 @@ public class TestCode {
 		for(Integer value: map.values()) {}
 		
 		map.size();
+		//int value = map.remove(key);
 		Set<Entry<Integer, Integer>> mapSet = map.entrySet();
 		Iterator<Entry<Integer, Integer>> mapIte = mapSet.iterator();
 		while(mapIte.hasNext()) System.out.println("key: "+mapIte.next().getKey());
@@ -42,6 +43,10 @@ public class TestCode {
 		for(int i = 0; i < 10; i++) listL.add(i);
 		listL.toArray(); // good way to transform list to array.
 		new ArrayList<Integer>(listL); // copy a list
+		listL.add(0, 5); // insert
+		listL.set(0, 4); // set(index, element)
+		listL.remove(0); // int for index, Object for object
+		listL.getLast();
 		// System.out.println(Arrays.toString(listL.toArray()));
 		
 		ArrayList<Integer> listA = new ArrayList<>();

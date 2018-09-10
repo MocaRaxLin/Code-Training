@@ -35,14 +35,18 @@ public class No813LargestSumofAverages {
 		// DP -> Find the subproblem!
 		
 		// Important!
+		//
 		// Let dp[i,k] denotes the largest sum of averages in A[0:i] with k groups.
+		//
 		// Why?
 		// The reason is we can form k groups faster if we know answers of smaller groups set.
-		// Also speak to average, it is common to use "preffixSum Array" to speed up calculation.
+		// Also speak of average, it is common to use "preffixSum Array" to speed up calculation.
 		// Therefore we define the subproblem like this. (Give it a shot!)
 		
 		// Think about how to form the last group?
+		//
 		// dp[i,k] = MAX(dp[j][k-1] + average(A[j+1:i]), for j = X to i-1
+		//
 		// Here is the point. X is not always 0, because sometimes it makes no sense.
 		// Like dp[0,3]. What do you mean by cutting A[0] into 3 pieces and ask the average?
 		// NO! So we must carefully examine X!
@@ -78,6 +82,7 @@ public class No813LargestSumofAverages {
 		//
 		// i = 3: dp[3][2] = Max(dp[j][2] + average(A[j+1:3]) ), for j = 1 to 2
 		// i = 4: dp[4][2] = Max(dp[j][2] + average(A[j+1:4]) ), for j = 1 to 3
+		//
 		// Thus minimum of j which is X should be k - 2.
 		
 		
@@ -93,13 +98,13 @@ public class No813LargestSumofAverages {
         
         int k;
         for(k = 2; k <= K && k <= A.length; k++){ // let k be up to either K or n
-            dp[k-1][k] = preSum[k-1];
+            dp[k-1][k] = preSum[k-1]; // average of A[0:k-1] with k groups = sum of all single values.
             for(int i = k; i < A.length; i++){
                 dp[i][k] = Integer.MIN_VALUE;
                 for(int j = k - 2; j < i; j++)
                     dp[i][k] = Math.max(dp[i][k], dp[j][k-1] + (double) (preSum[i] - preSum[j])/(i-j) );
             }
         }
-        return dp[A.length - 1][k - 1];
+        return dp[A.length - 1][k - 1]; // k-1 = MIN(n, K)
     }
 }

@@ -78,10 +78,6 @@ public class No474OnesandZeroes {
             }
         }
         return  dp[m][n];
-        
-        // Ps.
-        // We can use greedy to solve this problem
-        // Think about it :)
     }
     
     public void convertTo(String[] strs, int[][] A){

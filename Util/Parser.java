@@ -34,6 +34,16 @@ public class Parser {
 		}
 	}
 	
+	public List<String> parseListStr(String line, boolean isArray){
+		line = line.replaceAll("\\s", "");
+		String[] a = parseArrayStr(line);
+		List<String> ret = null;
+		if(isArray) ret = new ArrayList<String>();
+		else ret = new LinkedList<String>();
+		for(String i: a) ret.add(i);
+		return ret;
+	}
+	
 	//int
 	public int[] parseArray(String line) {
 		line = line.replaceAll("\\s", "");

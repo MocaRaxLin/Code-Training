@@ -17,9 +17,51 @@ public class No838PushDominoes {
 		}
 	}
 	
-	public String pushDominoes(String dominoes) {
+	public String pushDominoes(String D) {
+        // --> O(n), where n = D.length()
+        
+        // Thanks to:
+        // https://leetcode.com/problems/push-dominoes/discuss/132332/C++JavaPython-Two-Pointers
+        
+		// Intution:
+		// Use two pointer i j to frame region X...X
+		// L...L -> LLLLL; L...R -> remain same; ... etc.
+		// Don't forget corner cases eg. i = -1 or j = D.length()
+		
+        if(D.length() == 0) return "";
+        char[] ca = D.toCharArray();
+        int i = -1, j = 0;
+        while(i < ca.length && j < ca.length){
+            while(j < ca.length && ca[j] == '.') j++;
+            if(j - i > 0) fillLR(ca, i, j);
+            i = j;
+            j++;
+        }
+        return new String(ca);
+    }
+    
+    private void fillLR(char[] ca, int i, int j){
+        if(i == -1 && j == ca.length) return;
+        if(i == -1){
+            if(ca[j] == 'L') while(i++<j) ca[i] = 'L';
+        }else if(j == ca.length){
+            if(ca[i] == 'R') while(i<j--) ca[j] = 'R';
+        }else if(ca[i] == ca[j]){
+            while(i++ < j) ca[i] = ca[j];
+        }else if(ca[i] == 'R' && ca[j] == 'L'){
+            while(i<j){
+                ca[i++] = 'R';
+                ca[j--] = 'L';
+            }
+        }
+    }
+    
+    
+	public String pushDominoes0(String dominoes) {
 		// --> O(N), where N = dominoes.length()
+		
 		// Scan and find dot blocks like "A....B", where A, B = {' ', 'L', 'R'}.
+		//
 		// There are 9 possible scenarios.
 		// A\B  ' '  L  R
 		// ' '   .   L  .
