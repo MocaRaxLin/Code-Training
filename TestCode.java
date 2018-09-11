@@ -41,7 +41,7 @@ public class TestCode {
 		
 		LinkedList<Integer> listL = new LinkedList<>();
 		for(int i = 0; i < 10; i++) listL.add(i);
-		listL.toArray(); // good way to transform list to array.
+		listL.toArray(); // good way to transform list to array BUT ONLY for "String"
 		new ArrayList<Integer>(listL); // copy a list
 		listL.add(0, 5); // insert
 		listL.set(0, 4); // set(index, element)
@@ -148,6 +148,12 @@ public class TestCode {
 		// bit operation
 		int bitA = 5;
 		System.out.println((bitA&1) == 1);
+		
+		
+		//Priority Queue
+		PriorityQueue<Integer> pq1 = new PriorityQueue<Integer>();
+		pq1.contains(new Integer(0));
+		
 	}
 
 }

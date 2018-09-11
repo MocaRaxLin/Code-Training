@@ -1,5 +1,8 @@
 package DP;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 import Util.Parser;
 
 public class No313SuperUglyNumber {
@@ -32,10 +35,12 @@ public class No313SuperUglyNumber {
 		// eg. idx = [2,4,1,0], primes = [2,5,3,7]
 		//     our candidate = [dp[2]*2, dp[4]*5, dp[1]*3, dp[0]*7]   ps. just example
 		// Then we find the min in candidates as dp[i].
-		// After we increase the index where candidate[j] == min
+		// After that, we increase the index by 1 where candidate[j] == min
 		// eg. dp[1]*3 is the smallest, then idx = [2, 4, 1+1, 0]
 		
 		// Ps. we can use min heap to extract min value to speed up performance.
+		// Think about it.
+		// Slow in Leetcode... weird though.
 		
         if(n == 1) return 1;
         int[] idx = new int[primes.length];
@@ -51,6 +56,31 @@ public class No313SuperUglyNumber {
             for(int j = 0; j < primes.length; j++){
                 if(dp[i] == candidates[j]) idx[j]++;
             }
+        }
+        return dp[n-1];
+    }
+	
+	public int nthSuperUglyNumberPQ(int n, int[] primes) {
+        // --> O(nlogm), where m = primes.length
+        
+        if(n == 1) return 1;
+        int[] idx = new int[primes.length];
+        int[] dp = new int[n];
+        dp[0] = 1;
+        
+        PriorityQueue<int[]> q = new PriorityQueue<int[]>(new Comparator<int[]>(){
+            public int compare(int[] i, int[] j){ return i[0] - j[0]; }
+        });
+        for(int i = 0; i < primes.length; i++){
+            q.offer(new int[]{primes[i], i});
+        }
+        
+        for(int i = 1; i < n; i++){
+            int[] e = q.poll();
+            if(e[0] != dp[i-1]) dp[i] = e[0];
+            else i--;
+            int candid = dp[++idx[e[1]]]*primes[e[1]];
+            q.offer(new int[]{candid, e[1]});
         }
         return dp[n-1];
     }
