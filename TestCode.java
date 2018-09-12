@@ -33,6 +33,7 @@ public class TestCode {
 		for(Integer key: map.keySet()) { }
 		for(Integer value: map.values()) {}
 		
+		
 		map.size();
 		//int value = map.remove(key);
 		Set<Entry<Integer, Integer>> mapSet = map.entrySet();
@@ -81,6 +82,9 @@ public class TestCode {
 		sb.insert(0, "Head");
 		StringBuilder sb2 = new StringBuilder();
 		sb.append(sb2.toString());
+		sb.deleteCharAt(sb.length()-1); //remove the last
+		char sbHead = sb.charAt(0); // get first char
+		sb.deleteCharAt(0); //remove the head
 		sb = new StringBuilder(); // clear 
 		sb.setLength(0); // clear
 		

@@ -21,6 +21,16 @@ public class No652FindDuplicateSubtrees {
 	}
 
 	public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
+		// --> O(N^N)
+		
+		// Intuition:
+		// We can encode a tree as a preorder serial
+		// eg.
+		//     4
+		//    /       ->  convert -> 4,2,#,#,#
+		//   2
+		// use # as null node.
+		
         List<TreeNode> ret = new LinkedList<TreeNode>();
         preorder(root, ret, new HashMap<String, Integer>());
         return ret;
