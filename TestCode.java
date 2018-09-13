@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -147,16 +148,25 @@ public class TestCode {
 		char[] cMap = new char[256];
 		char[] hlwd = "helloworld".toCharArray(); 
 		new String(hlwd); // char[] to String
-		
+		char[] emptyCa = new char[3];
+		// System.out.println(emptyCa[0] == 0);
 		
 		// bit operation
 		int bitA = 5;
-		System.out.println((bitA&1) == 1);
+		// System.out.println((bitA&1) == 1);
 		
 		
 		//Priority Queue
 		PriorityQueue<Integer> pq1 = new PriorityQueue<Integer>();
 		pq1.contains(new Integer(0));
+		
+		// Deque (double end queue)
+		Deque<String> deq = new LinkedList<String>();
+		deq.iterator();
+		// deq.pollFirst();
+		// deq.offerLast();
+		
+		
 		
 	}
 

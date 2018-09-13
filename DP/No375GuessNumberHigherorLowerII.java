@@ -25,7 +25,7 @@ public class No375GuessNumberHigherorLowerII {
         
         // Let dp[i][j] denotes the minumum cost to guarentee a win.
         // dp[i][j] = MIN(x[k]), for k in [i:j]
-        // Let x[i] denotes the higher cost no matter target t < k or k < t.
+        // Let x[k] denotes the highest cost no matter target t < k or k < t.
         // x[k] = MAX(dp[i][k-1], dp[k+1][j]) + k
         
         // basic case dp[i][i] = 0
