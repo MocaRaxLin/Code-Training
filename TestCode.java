@@ -48,7 +48,7 @@ public class TestCode {
 		listL.add(0, 5); // insert
 		listL.set(0, 4); // set(index, element)
 		listL.remove(0); // int for index, Object for object
-		listL.getLast();
+		// listL.sort(); // remember to add comparator
 		// System.out.println(Arrays.toString(listL.toArray()));
 		
 		ArrayList<Integer> listA = new ArrayList<>();

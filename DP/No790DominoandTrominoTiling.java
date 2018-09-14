@@ -46,6 +46,11 @@ public class No790DominoandTrominoTiling {
 		// 2 -> {||, ＝} -> 2
 		// 3 -> {|||, ｜＝, ＝｜, 「」, ＬＴ} -> 5
 		//      dp[2] x {|} + dp[1] x {＝} + dp[0]x{「」, ＬＴ}
+		
+		// Don't forget:
+		// 「...」, Ｌ...Ｔ, where ... means =.
+		// That's why 2*(dp[n-3] + dp[n-4] + ... + dp[1] + dp[0]) exists.
+		
 		// dp[3] = dp[2] + dp[1] + 2*(dp[0])
 		// dp[4] = dp[3] + dp[2] + 2*(dp[1] + dp[0])
 		// dp[5] = dp[4] + dp[3] + 2*(dp[2] + dp[1] + dp[0])
