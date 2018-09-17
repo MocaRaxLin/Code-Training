@@ -27,8 +27,38 @@ public class No777SwapAdjacentinLRString {
 			System.out.println(ans);
 		}
 	}
+	
+	public boolean canTransform(String start, String end) {
+		// --> time = O(n)
+		
+		// l denotes how many L we should meet later,
+		// so end gives l++, start decrease l by 1 (l--).
+		// when l < 0 -> false
+		//
+		// r denotes how many R we should meet later,
+		// so start gives l++, end decrease l by 1 (l--).
+		// when r < 0 -> false
+		//
+		// Moreover, if both r and l > 0, 
+		// it means we are waiting L and R in the same time, 
+		// which is not allowed!
+		// eg. RL -> LR.
+		//
+		// l and r should be balanced in the end.
+		
+        if(start.length() != end.length()) return false;
+        int l = 0, r = 0;
+        for(int i = 0; i < start.length(); ++i) {
+            if(start.charAt(i) == 'R') r++;
+            if(start.charAt(i) == 'L') l--;
+            if(end.charAt(i) == 'R') r--;
+            if(end.charAt(i) == 'L') l++;
+            if(l < 0 || r < 0 || l > 0 && r > 0) return false;
+        }
+        return l==0 && r==0;
+    }
 
-	private boolean canTransform(String start, String end) {
+	private boolean canTransform0(String start, String end) {
 		// --> O(n)
 		
 		// Intuition:

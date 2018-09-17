@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Deque;
 import java.util.HashMap;
@@ -48,6 +49,7 @@ public class TestCode {
 		listL.add(0, 5); // insert
 		listL.set(0, 4); // set(index, element)
 		listL.remove(0); // int for index, Object for object
+		// Collections.sort(list, c);
 		// listL.sort(); // remember to add comparator
 		// System.out.println(Arrays.toString(listL.toArray()));
 		
@@ -60,8 +62,15 @@ public class TestCode {
 		Iterator<Integer> setIte = set.iterator();
 		
 		Queue<Integer> queue = new LinkedList<>();
-		
-		
+		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
+			@Override
+			public int compare(int[] a, int[] b) {return a[0] - b[0]; }
+		});
+		Comparator<int[]> cmp = new Comparator<int[]>() {
+			public int compare(int[] a, int[] b){
+            	return a[1] == b[1]? b[0] - a[0]: a[1] - b[1];
+            }
+		};
 		int[][] intint = new int[][] {
 			{2,7}, {1,7}, {5,1}, {5,7}, {2,6}, {4,1}
 		};
@@ -122,10 +131,6 @@ public class TestCode {
 		String helloworld = "Hi! hello  world!";
 		String[] sss = helloworld.split("\\s+");
 		
-		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
-			@Override
-			public int compare(int[] a, int[] b) {return a[0] - b[0]; }
-		});
 		
 		String commaS = "a,,b,"; // split will ignore the last empty string
 		//System.out.println(Arrays.toString(commaS.split(",")));
