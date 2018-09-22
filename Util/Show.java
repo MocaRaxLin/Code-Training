@@ -71,6 +71,13 @@ public class Show {
 		System.out.print("]\n");
 	}
 	
+	public void showMatrixChar(char[][] ans) {
+		// System.out.print("[");
+		for(int i = 0; i < ans.length; i++)
+			System.out.println(Arrays.toString(ans[i])+",");
+		System.out.print("\n");
+	}
+	
 	//set
 	public void showSetStr(Set<String> ans) {
 		Iterator<String> it = ans.iterator();

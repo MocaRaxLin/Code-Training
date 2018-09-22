@@ -1,4 +1,4 @@
-package QueueStack;
+package Graph;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
