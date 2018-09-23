@@ -62,10 +62,14 @@ public class TestCode {
 		Iterator<Integer> setIte = set.iterator();
 		
 		Queue<Integer> queue = new LinkedList<>();
+		// queue.iterator()
 		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
 			@Override
 			public int compare(int[] a, int[] b) {return a[0] - b[0]; }
 		});
+		// pq.remove(3);
+		// pq.peek();
+		
 		Comparator<int[]> cmp = new Comparator<int[]>() {
 			public int compare(int[] a, int[] b){
             	return a[1] == b[1]? b[0] - a[0]: a[1] - b[1];

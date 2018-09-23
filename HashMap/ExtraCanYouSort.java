@@ -17,7 +17,7 @@ public class ExtraCanYouSort {
 				"[1,6,4,2,2,2,2,4,6]\n" + 
 				"[1]\n" + 
 				"[0]\n" + 
-				"[]";
+				"[2,1]";
 		String[] s = t.split("\n");
 		for(int i = 0; i < s.length; i++) {
 			int[] A = parser.parseArray(s[i]);
