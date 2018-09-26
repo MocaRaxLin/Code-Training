@@ -176,6 +176,10 @@ public class TestCode {
 		// deq.offerLast();
 		
 		
+		//Math
+		double quote = Math.log(10) - Math.log(2);
+		System.out.println(quote);
+		System.out.println((int) Math.exp(quote));
 		
 	}
 
