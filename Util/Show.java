@@ -20,6 +20,14 @@ public class Show {
 		System.out.print(Arrays.toString(list.toArray()));
 		if(nextLine) System.out.print("\n");
 	}
+
+	public void showListArray(List<String[]> list) {
+		System.out.print("[");
+		for(int i = 0; i < list.size(); i++) {
+			System.out.print(Arrays.toString(list.get(i)) + ",");
+		}
+		System.out.print("]\n");
+	}
 	
 	public void showListListInt(List<List<Integer>> ans) {
 		if(ans == null) return;
