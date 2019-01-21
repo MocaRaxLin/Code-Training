@@ -27,6 +27,7 @@ public class TestCode {
 		// Arrays.copyOfRange(A, 0, size); // copy A from index 0 to size-1.
 		// System.out.println(Arrays.toString(t));
 		
+		
 		Map<Integer, Integer> map = new HashMap<>();
 		for(Map.Entry<Integer, Integer> pairs : map.entrySet()) {
 			pairs.getKey();
@@ -34,7 +35,6 @@ public class TestCode {
 		}
 		for(Integer key: map.keySet()) { }
 		for(Integer value: map.values()) {}
-		
 		
 		map.size();
 		//int value = map.remove(key);
@@ -58,6 +58,7 @@ public class TestCode {
 		
 		Set<Integer> set = new HashSet<>();
 		set.size();
+		// set.containsAll(set);
 		//set.remove((Object) 7); // for object
 		Iterator<Integer> setIte = set.iterator();
 		
@@ -67,6 +68,10 @@ public class TestCode {
 			@Override
 			public int compare(int[] a, int[] b) {return a[0] - b[0]; }
 		});
+		List<int[]> pqList = new ArrayList<int[]>(pq);
+		Collections.reverse(pqList);
+		Iterator<int[]> pqit = pq.iterator();
+		while(pqit.hasNext()) System.out.println(pqit.next());
 		// pq.remove(3);
 		// pq.peek();
 		
@@ -94,6 +99,7 @@ public class TestCode {
 		
 		StringBuilder sb = new StringBuilder();
 		sb.insert(0, "Head");
+		sb.charAt(0);
 		StringBuilder sb2 = new StringBuilder();
 		sb.append(sb2.toString());
 		sb.deleteCharAt(sb.length()-1); //remove the last

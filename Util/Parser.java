@@ -13,7 +13,7 @@ public class Parser {
 		String[] s = line.split("[,|\\[|\\]]");
 		if(s.length == 0) return new String[] {};
 		String[] ret = new String[s.length-1];
-		for(int i = 0; i < ret.length; i++) ret[i] = s[i+1].trim();
+		for(int i = 0; i < ret.length; i++) ret[i] = s[i+1];
 		return ret;
 	}
 	
